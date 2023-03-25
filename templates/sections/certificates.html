@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Certificates</h1>
+  <hr>
+  {% for certificate in certificates %}
+    <div class="card mb-3">
+      <img src="{{ certificate.image.url|safe }}" class="card-img-top" alt="{{ certificate.title }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ certificate.title }}</h5>
+        <a href="{{ certificate.get_absolute_url }}" class="btn btn-primary">Read more</a>
+      </div>
+    </div>
+  {% empty %}
+    <p>No certificates available.</p>
+  {% endfor %}
+{% endblock %}
