@@ -1,5 +1,4 @@
 from django.db import models
-from django.urls import reverse
 from django.utils import timezone
 # Create your models here.
 
@@ -110,9 +109,6 @@ class Certificate(models.Model):
 
     def __str__(self):
         return self.title
-
-    def get_absolute_url(self):
-        return reverse("certificate_detail_page", args=[self.slug])
 
     # def get_queryset(self):
     #     return super().get_queryset().filter(status=Certificate.Status.Published.name) # noqa

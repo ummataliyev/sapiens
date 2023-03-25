@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.http.response import FileResponse
 
 from .models import MyBots
 from .models import Comments
@@ -122,24 +122,9 @@ def contact_page_view(request):
     return render(request, 'main/contact-me.html', context)
 
 
-# class CertificateListView(ListView):
-#     template_name = 'web_app/certificate_list.html'
-#     queryset = Certificate.published.all()
-
-
-# class CertificateDetailView(DetailView):
-#     queryset = Certificate.published.all()
-#     template_name = "main/certificates.html"
-#     context_object_name = "certificate"
-
-#     def get_object(self):
-#         id = self.kwargs.get("id")
-#         return get_object_or_404(Certificate, id=id, status=Certificate.Status.PUBLISHED) # noqa
-
-
 class CertificateListView(ListView):
     template_name = "sections/certificates.html"
-    queryset = Certificate.published.all()
+    queryset = Certificate.objects.all()
     context_object_name = 'certificates'
 
 
