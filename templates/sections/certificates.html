@@ -2,24 +2,26 @@
 {% load static %}
 
 {% block content %}
-  <div class="container">
-    <h1 class="my-4">Certificates</h1>
-    <hr class="mb-4">
-    <div class="row">
-      {% for certificate in certificates %}
-        <div class="col-md-4">
-          <div class="card mb-4">
-            <img src="{{ certificate.image.url|safe }}" class="card-img-top" alt="{{ certificate.title }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ certificate.title }}</h5>
+  <div class="py-5">
+    <div class="container">
+      <h1 class="my-4">Certificates</h1>
+      <hr class="mb-4">
+      <div class="row">
+        {% for certificate in certificates %}
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <img src="{{ certificate.image.url|safe }}" class="card-img-top" alt="{{ certificate.title }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ certificate.title }}</h5>
+              </div>
             </div>
           </div>
-        </div>
-      {% empty %}
-        <div class="col-md-12">
-          <p>No certificates available.</p>
-        </div>
-      {% endfor %}
+        {% empty %}
+          <div class="col-md-12">
+            <p>No certificates available.</p>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 {% endblock %}
