@@ -1,0 +1,18 @@
+# Ignore node_modules directory
+node_modules
+
+# Ignore log files
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore git files
+.git
+.gitignore
+
+# Ignore any file or directory that starts with a period
+.*
+
+# Ignore any file or directory that ends with a tilde (~)
+*~
