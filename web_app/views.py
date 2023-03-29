@@ -97,23 +97,22 @@ def contact_page_view(request):
     """The Contact Page View
         uses for contact with me
     """
-    form = GetInTouchForm()
-
     if request.method == 'POST':
         form = GetInTouchForm(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.save()
-            text = f"The person who sent the message: {obj}\nEmail: {obj.email}\nMessage text: {obj.body}" # noqa
+            text = f"User: {obj}\nEmail: {obj.email}\nMessage: {obj.body}" # noqa
             resp = telebot.send_message(text)
             if resp.status_code == 200:
                 messages.success(
                     request, 'Your message has been sent successfully, I will reply you soon!') # noqa
-                return HttpResponseRedirect('contact-me')
+                return redirect('contact-me')
             else:
-                mess: str = "There was a problem sending the message,"
-                mess += "Please, try again later."
+                mess = "There was a problem sending the message. Please try again later." # noqa
                 messages.error(request, mess)
+    else:
+        form = GetInTouchForm()
 
     context = {
         "form": form
