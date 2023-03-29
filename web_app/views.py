@@ -65,7 +65,7 @@ def my_resume_download_view(request):
     """The My Resume Download View
         uses for download resume."""
     if request:
-        filename = './static/resume.pdf'
+        filename = './static/ummataliyev.pdf'
         response = FileResponse(open(filename, 'rb'))
 
         return response
