@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.views.generic import ListView
 from django.views.generic import DetailView
-from django.http import HttpResponseRedirect
 from django.http.response import FileResponse
 
 from .models import MyBots
@@ -102,7 +101,7 @@ def contact_page_view(request):
         if form.is_valid():
             obj = form.save(commit=False)
             obj.save()
-            text = f"User: {obj}\nEmail: {obj.email}\nMessage: {obj.body}" # noqa
+            text = f"User: {obj}\nEmail: {obj.email}\nMessageT: {obj.body}" # noqa
             resp = telebot.send_message(text)
             if resp.status_code == 200:
                 messages.success(
