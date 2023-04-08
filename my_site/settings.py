@@ -29,7 +29,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = False
 APP_ENV = env.str("APP_ENV", 'production')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
