@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env.str("SECRET_KEY")
 
-DEBUG = False
-APP_ENV = env.str("APP_ENV", 'production')
+DEBUG = env.str("DEBUG")
+APP_ENV = env.str("APP_ENV", 'development')
 
 ALLOWED_HOSTS = ['*']
 
